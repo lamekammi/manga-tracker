@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const mangaSchema = new Schema({
     title: String,
     chapter: {
-        type: Number,
-        min: 0,
+        type: String,
     },
     reading: {
         type: String,
