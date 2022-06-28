@@ -19,6 +19,7 @@
         <tr>
             <th>Title</th>
             <th>Chapter</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,10 @@
         <tr>
             <td><%= m.title %></td>
             <td><a href="/mangas/<%= m._id %>">Details</a></td>
+            <td><form action="/mangas/<%= m.id %>?_method=DELETE"
+                class="delete-form" method="POST">
+                <button type="submit">X</button>
+              </form></td>
         </tr>
     <% }) %>
     </tbody>
