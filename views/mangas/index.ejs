@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Mangas</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
+    <nav>
+        <a href="/mangas/new">Add Manga</a>
+        <a href="/logout">LOG OUT</a>
+        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    </nav>
     <h1>All Mangas</h1>
     <table id="list">
     <thead>
@@ -19,7 +25,7 @@
     <% mangas.forEach(function(m) { %>
         <tr>
             <td><%= m.title %></td>
-            <td><a href="/movies/<%= m._id %>">Details</a></td>
+            <td><a href="/mangas/<%= m._id %>">Details</a></td>
         </tr>
     <% }) %>
     </tbody>

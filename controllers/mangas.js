@@ -2,6 +2,7 @@ const Manga = require('../models/manga');
 
 module.exports = {
     index,
+    show,
     new: newManga,
     create
 };
@@ -11,6 +12,12 @@ function index(req, res) {
         res.render('mangas/index', {mangas});
     });
 }
+
+function show(req, res) {
+    Manga.findById(req.params.id, function(err, manga) {
+        res.render('mangas/show', { manga })
+    })
+};
 
 function newManga(req, res) {
     res.render('mangas/new');
