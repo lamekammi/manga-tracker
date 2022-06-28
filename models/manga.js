@@ -6,7 +6,6 @@ const mangaSchema = new Schema({
     chapter: {
         type: Number,
         min: 0,
-        default: 0
     },
     reading: {
         type: String,
