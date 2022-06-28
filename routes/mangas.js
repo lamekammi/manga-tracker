@@ -7,5 +7,7 @@ router.get('/new', mangasCtrl.new);
 router.get('/:id', mangasCtrl.show);
 router.post('/', mangasCtrl.create);
 router.delete('/:id', mangasCtrl.delete);
+router.get('/:id/edit', mangasCtrl.edit);
+router.put('/:id', mangasCtrl.update);
 
 module.exports = router;

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Manga</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <h1>Update Manga</h1>
+    <form action="/mangas/<%= manga._id %>?_method=PUT" method="POST" autocomplete="off">
+        <label>Title:</label>
+        <input type="text" name="title" value="<%= manga.title %>">
+        <br><br>
+        <label>Chapter:</label>
+        <input type="text" name="chapter" value="<%= manga.chapter %>">
+        <br><br>
+        <label>Reading:</label>
+        <select name="reading">
+            <option value="Currently Reading">Currently Reading</option>
+            <option value="Plan To Read">Plan To Read</option>
+            <option value="On Hold">On Hold</option>
+            <option value="Completed">Completed</option>
+            <option value="Dropped">Dropped</option>
+        </select>
+        <br><br>
+        <label>Rating:</label>
+        <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Update Manga">
+    </form>
+</body>
+</html>

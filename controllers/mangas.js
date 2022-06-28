@@ -5,7 +5,9 @@ module.exports = {
     show,
     new: newManga,
     create,
-    delete: deleteManga
+    delete: deleteManga,
+    edit,
+    update
 };
 
 function index(req, res) {
@@ -34,8 +36,6 @@ function create(req, res) {
     });
 };
 
-
-// must come back to fix -- is sending to a query not found page instead of redirecting back to '/mangas'
 function deleteManga(req, res, next) {
     Manga.findById(req.params.id).then(function(manga) {
         if (!manga) return res.redirect('/mangas');
@@ -47,3 +47,14 @@ function deleteManga(req, res, next) {
         });
     });
 };
+
+function edit(req, res) {
+    res.render('mangas/edit', {
+        manga: Manga.findById(req.params.id)
+    })
+}
+
+function update(req, res) {
+    Manga.update(req.body, req.params.id);
+    res.redirect(`/mangas/${req.params.id}`);
+}
