@@ -54,7 +54,5 @@ function edit(req, res) {
     })
 }
 
-function update(req, res) {
-    Manga.update(req.body, req.params.id);
-    res.redirect(`/mangas/${req.params.id}`);
+function update(req, res, next) {
 }
