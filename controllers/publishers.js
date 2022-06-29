@@ -1,11 +1,13 @@
 const Publisher = require('../models/publisher');
 
 module.exports = {
-    index
-}
+    new: newPublisher
+};
 
-function index(req, res) {
+function newPublisher(req, res) {
     Publisher.find({}, function(err, publishers) {
-        res.render('publishers/index', {publishers});
+        res.render('publishers/new', {
+            publishers
+        });
     })
 }
