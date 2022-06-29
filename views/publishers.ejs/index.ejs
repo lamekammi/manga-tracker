@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publishers</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <nav>
+        <a href="/mangas">All Mangas</a>
+        <a href="/mangas/new">Add Manga</a>
+        <a href="/logout">LOG OUT</a>
+        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    </nav>
+
+    <h1>Publishers</h1>
+    <% publishers.forEach(function(p) { %>
+        <section id="badge-container">
+            <article class="'badge"><%= p.name %></article>
+        <% }) %>
+        </section>
+
+</body>
+</html>
