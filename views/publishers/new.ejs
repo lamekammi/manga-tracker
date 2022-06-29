@@ -15,11 +15,17 @@
 </nav>
 <body>
     <h1>Publishers</h1>
-    <p>before adding please make sure the Publisher is not here:</p>
+    <p>publishing studios for mangas:</p>
     <section id="badge-container">
         <% publishers.forEach(function(p) { %>
             <article class="badge"><%= p.name %></article>
         <% }) %>
     </section>
+    <br><br>
+    <form id="add-publishers-form" action="/publishers" method="POST" autocomplete="off">
+        <label>Publisher:</label>
+        <input type="text" name="name">
+        <input type="submit" value="Add Publisher">
+    </form>
 </body>
 </html>

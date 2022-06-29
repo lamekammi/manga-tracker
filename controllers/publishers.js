@@ -1,7 +1,8 @@
 const Publisher = require('../models/publisher');
 
 module.exports = {
-    new: newPublisher
+    new: newPublisher,
+    create
 };
 
 function newPublisher(req, res) {
@@ -10,4 +11,10 @@ function newPublisher(req, res) {
             publishers
         });
     })
+}
+
+function create(req, res) {
+    Publisher.create(req.body, function(err, publisher) {
+        res.redirect('/publishers/new');
+    });
 }
