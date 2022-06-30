@@ -1,4 +1,6 @@
 const Manga = require('../models/manga');
+const Publisher = require('../models/publisher');
+//const User = require('..models/user');
 
 module.exports = {
     index,
@@ -7,18 +9,30 @@ module.exports = {
     create,
     delete: deleteManga,
     edit,
-    update
+    update,
+    addToManga
 };
 
 function index(req, res) {
     Manga.find({}, function(err, mangas) {
+        req.body.user = req.user._id
+        req.body.userName = req.user.name;
+        req.body.userAvatar = req.user.avatar;
         res.render('mangas/index', {mangas});
     });
 }
 
 function show(req, res) {
-    Manga.findById(req.params.id, function(err, manga) {
-        res.render('mangas/show', { manga })
+    Manga.findById(req.params.id)
+        .populate('publisher').exec(function(err, manga) {
+            if (manga.publisher) {
+                return res.render('mangas/show', { manga, publishers: null })
+            } else {
+                Publisher.find({}, function(err, publishers) {
+                    console.log(publishers)
+                    return res.render('mangas/show', { manga, publishers })
+            })
+        }
     })
 };
 
@@ -65,4 +79,14 @@ function update(req, res) {
             res.redirect(`/mangas/${req.params.id}`) 
         }
     )
+}
+
+
+function addToManga(req, res) {
+    Manga.findById(req.params.id, function(err, manga) {
+        manga.publisher = req.body.publisher
+        manga.save(function(err) {
+            res.redirect(`/mangas/${manga._id}`)
+        })
+    })
 }

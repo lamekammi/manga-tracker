@@ -1,8 +1,9 @@
+const Manga = require('../models/manga');
 const Publisher = require('../models/publisher');
 
 module.exports = {
     new: newPublisher,
-    create
+    create,
 };
 
 function newPublisher(req, res) {
@@ -18,3 +19,4 @@ function create(req, res) {
         res.redirect('/publishers/new');
     });
 }
+

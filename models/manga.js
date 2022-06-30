@@ -15,7 +15,11 @@ const mangaSchema = new Schema({
         type: Number,
         enum: [1, 2, 3, 4, 5],
         default: 5
-    }
+    },
+    publisher: {type: Schema.Types.ObjectId, ref: 'Publisher'},
+    user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
+    userName: String,
+    userAvatar: String
 }, {
     timestamps: true
 });
