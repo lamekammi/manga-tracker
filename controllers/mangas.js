@@ -39,20 +39,31 @@ function create(req, res) {
 function deleteManga(req, res, next) {
     Manga.findById(req.params.id).then(function(manga) {
         if (!manga) return res.redirect('/mangas');
-        manga.remove(req.params.id);
-        manga.save().then(function() {
-            res.redirect('/mangas');
+        manga.remove(req.params.id).then(function(){
+                res.redirect('/mangas');
+        })
         }).catch(function(err) {
             return next(err);
         });
-    });
-};
+    };
 
 function edit(req, res) {
+  Manga.findById(req.params.id, (err, foundManga) => {
     res.render('mangas/edit', {
-        manga: Manga.findById(req.params.id)
+        manga: foundManga
     })
+  })
 }
 
-function update(req, res, next) {
+function update(req, res) {
+    Manga.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new: true,
+        },
+        (err, updatedManga) => {
+            res.redirect(`/mangas/${req.params.id}`) 
+        }
+    )
 }
