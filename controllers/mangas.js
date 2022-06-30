@@ -27,7 +27,6 @@ function newManga(req, res) {
 };
 
 function create(req, res) {
-    //req.body.chapter = Number(req.body.chapter);
     const manga = new Manga(req.body);
     manga.save(function(err) {
         if (err) return res.redirect('/mangas/new');
