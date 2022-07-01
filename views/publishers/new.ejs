@@ -7,15 +7,27 @@
     <title>Publishers</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-<nav>
-    <a href="/mangas">All Mangas</a>
-    <a href="/mangas/new">Add Manga</a>
-    <a href="/logout">LOG OUT</a>
-    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-</nav>
 <body>
-    <h1>Publishers</h1>
-    <p>publishing studios for mangas:</p>
+    <header>
+    <div class="container">
+        <img src="https://i.imgur.com/as5zeHZ.png?2" alt="logo" class="logo">
+    <nav>
+        <% if (user) { %> 
+            <a href="/mangas">All Mangas</a>
+            <a href="/mangas/new">Add Manga</a>
+            <a href="/publishers/new">Publishers</a>
+            <a href="/logout" class="logout">LOG OUT</a>
+            <% } else {%>
+            <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+            <% } %>
+    </nav>
+    </div>
+    </header>
+    <br>
+    <div class="main-text">
+     <img src="https://i.imgur.com/sK4uXjP.png?1" alt="publishers" class="h1-text">
+    <hr>
+    <p>Publishing studios for mangas:</p>
     <section id="badge-container">
         <% publishers.forEach(function(p) { %>
             <article class="badge"><%= p.name %></article>
@@ -25,7 +37,8 @@
     <form id="add-publishers-form" action="/publishers" method="POST" autocomplete="off">
         <label>Publisher:</label>
         <input type="text" name="name">
-        <input type="submit" value="Add Publisher">
+        <input type="submit" class="add-pub" value="Add Publisher">
     </form>
+    </div>
 </body>
 </html>

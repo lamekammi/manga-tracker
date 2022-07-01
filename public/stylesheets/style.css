@@ -1,19 +1,79 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
 }
 
-a {
-  color: #00B7FF;
+nav a {
+  color: black;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin-left: 90px;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
 }
 
-/* .login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
-} */
+a:hover {
+  color: #E98495;
+}
 
-.login img {
+.details, .update-manga {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+button, .add-pub, .update {
+  background-color: #E98495;
+  border-radius: 7px;
+}
+
+header {
+background: #9D9D9C;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logout {
+  float: right;
+}
+
+.logo {
+  float: left;
+  padding: 30px 0;
+  width: 3%;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.login, .login img {
+  float: right;
   height: 30px;
 } 
+
+.main-text {
+  margin-left: 15%;
+  margin-right: 50%;
+}
+
+label, .label, p {
+  font-weight: bold;
+}
+
+.main-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
