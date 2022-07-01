@@ -27,7 +27,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-button, .add-pub, .update {
+button, .add-pub, .update, .add-manga {
   background-color: #E98495;
   border-radius: 7px;
 }
