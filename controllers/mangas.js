@@ -14,10 +14,7 @@ module.exports = {
 };
 
 function index(req, res) {
-    Manga.find({}, function(err, mangas) {
-        req.body.user = req.user._id
-        req.body.userName = req.user.name;
-        req.body.userAvatar = req.user.avatar;
+    Manga.find({user: req.user._id}, function(err, mangas) {
         res.render('mangas/index', {mangas});
     });
 }
@@ -41,9 +38,15 @@ function newManga(req, res) {
 };
 
 function create(req, res) {
+    req.body.user = req.user._id
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
     const manga = new Manga(req.body);
     manga.save(function(err) {
-        if (err) return res.redirect('/mangas/new');
+        if (err) {
+            console.log(err)
+            return res.redirect('/mangas/new'); 
+        }
         console.log(manga);
         res.redirect('/mangas');
     });

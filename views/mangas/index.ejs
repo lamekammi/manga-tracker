@@ -30,6 +30,7 @@
     <tbody>
     <% mangas.forEach(function(m) { %>
         <tr>
+            <td class="user._id"></td>
             <td><%= m.title %></td>
             <td><a href="/mangas/<%= m._id %>">Details</a></td>
             <td><form action="/mangas/<%= m._id %>?_method=DELETE"
