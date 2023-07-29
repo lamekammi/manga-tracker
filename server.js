@@ -8,13 +8,13 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 
 require('dotenv').config();
-require('./config/database');
-require('./config/passport');
+require('./config/database.js');
+require('./config/passport.js');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const mangasRouter = require('./routes/mangas');
-const publishersRouter = require('./routes/publishers');
+var indexRouter = require('./routes/index.js');
+var usersRouter = require('./routes/users.js');
+const mangasRouter = require('./routes/mangas.js');
+const publishersRouter = require('./routes/publishers.js');
 
 var app = express();
 
