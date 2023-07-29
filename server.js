@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const session = require('express-session');
+const session = require('cookie-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
 

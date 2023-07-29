@@ -17,17 +17,17 @@ function index(req, res) {
     Manga.find({user: req.user._id}, function(err, mangas) {
         res.render('mangas/index', {mangas});
     });
-}
+};
 
 function show(req, res) {
     Manga.findById(req.params.id)
         .populate('publisher').exec(function(err, manga) {
             if (manga.publisher) {
-                return res.render('mangas/show', { manga, publishers: null })
+                return res.render('mangas/show', { manga, publishers: null });
             } else {
                 Publisher.find({}, function(err, publishers) {
                     console.log(publishers)
-                    return res.render('mangas/show', { manga, publishers })
+                    return res.render('mangas/show', { manga, publishers });
             })
         }
     })
@@ -69,7 +69,7 @@ function edit(req, res) {
         manga: foundManga
     })
   })
-}
+};
 
 function update(req, res) {
     Manga.findByIdAndUpdate(
@@ -79,17 +79,17 @@ function update(req, res) {
             new: true,
         },
         (err, updatedManga) => {
-            res.redirect(`/mangas/${req.params.id}`) 
+            res.redirect(`/mangas/${req.params.id}`);
         }
     )
-}
+};
 
 
 function addToManga(req, res) {
     Manga.findById(req.params.id, function(err, manga) {
         manga.publisher = req.body.publisher
         manga.save(function(err) {
-            res.redirect(`/mangas/${manga._id}`)
+            res.redirect(`/mangas/${manga._id}`);
         })
     })
-}
+};
